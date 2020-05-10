@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import CreateItem from "../components/CreateItem";
+import PleaseSignin from "../components/PleaseSignIn";
 
-import Link from "next/link";
-
-const Sell = props => (
-  <div>
-    <p>Sell</p>
-  </div>
+const Sell = (props) => (
+  <PleaseSignin>
+    <CreateItem></CreateItem>
+  </PleaseSignin>
 );
 
 export default Sell;

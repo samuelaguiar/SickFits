@@ -1,8 +1,9 @@
+import Cart from "./Cart";
 import Link from "next/link";
 import NProgress from "nprogress";
 import Nav from "./Nav";
-import NavStyles from "./styles/NavStyles";
 import Router from "next/router";
+import Search from "./Search";
 import styled from "styled-components";
 
 Router.onRouteChangeStart = () => {
@@ -24,7 +25,7 @@ const Logo = styled.h1`
 
   a {
     padding: 0.5rem 1rem;
-    background-color: ${props => props.theme.red};
+    background-color: ${(props) => props.theme.red};
     color: white;
     text-transform: uppercase;
     text-decoration: none;
@@ -38,7 +39,7 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
-    border-bottom: 10px solid ${props => props.theme.black};
+    border-bottom: 10px solid ${(props) => props.theme.black};
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
@@ -51,7 +52,7 @@ const StyledHeader = styled.header`
   .sub-bar {
     display: grid;
     grid-template-columns: 1fr auto;
-    border-bottom: 1px solid ${props => props.theme.lightGrey};
+    border-bottom: 1px solid ${(props) => props.theme.lightGrey};
   }
 `;
 
@@ -66,9 +67,9 @@ const Header = () => (
       <Nav></Nav>
     </div>
     <div className="sub-bar">
-      <p>Search</p>
+      <Search></Search>
     </div>
-    <div>Cart</div>
+    <Cart></Cart>
   </StyledHeader>
 );
 

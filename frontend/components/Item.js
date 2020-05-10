@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import AddToCart from "./AddToCart";
+import DeleteItem from "./DeleteItem";
 import ItemStyles from "./styles/ItemStyles";
 import Link from "next/link";
 import PriceTag from "./styles/PriceTag";
@@ -14,8 +16,8 @@ class Item extends Component {
       description: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
       image: PropTypes.string.isRequired,
-      largeImage: PropTypes.string.isRequired
-    }).isRequired
+      largeImage: PropTypes.string.isRequired,
+    }).isRequired,
   };
 
   render() {
@@ -27,7 +29,7 @@ class Item extends Component {
           <Link
             href={{
               pathname: "./item",
-              query: { id: item.id }
+              query: { id: item.id },
             }}
           >
             <a>{item.title}</a>
@@ -39,13 +41,13 @@ class Item extends Component {
           <Link
             href={{
               pathname: "update",
-              query: { id: item.id }
+              query: { id: item.id },
             }}
           >
             <a>Edit ✏</a>
           </Link>
-          <button>Add To Cart</button>
-          <button>Delete</button>
+          <AddToCart id={item.id}></AddToCart>
+          <DeleteItem id={item.id}>Delete this item</DeleteItem>
         </div>
       </ItemStyles>
     );
